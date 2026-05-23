@@ -623,6 +623,89 @@ body {
     overflow-x: hidden;
 }
 
+/* ===== OPORTUNIDADES ===== */
+
+.oportunidades {
+    background: linear-gradient(180deg, #fff, #fff7f0);
+}
+
+.oportunidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.oportunidade-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.oportunidade-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.oportunidade-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.oportunidade-content {
+    padding: 25px;
+}
+
+.oportunidade-tag {
+    display: inline-block;
+    background: rgba(255,122,24,0.12);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.oportunidade-content h3 {
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.oportunidade-content p {
+    color: var(--text-soft);
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.preview-list {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.preview-item {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.preview-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.preview-item span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
     </style>
 </head>
 
@@ -908,61 +991,167 @@ body {
     </section>
 
     <section id="horarios">
-        <h2>Transportes</h2>
-        <div class="menu-grid">
-            <div class="menu-category">
-                <h3>Ônibus (Principais Linhas)</h3>
-                <div class="menu-item">
-                    <div class="item-header"><span>Icoaraci - Ver-o-Peso</span><span class="item-price">R$ 4,60</span></div>
-                    <p class="item-description">Esta segue pela Rodovia Arthur Bernardes, passando pelo Tapanã e Pratinha até chegar ao centro comercial.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header"><span>Icoaraci - Almirante Barroso</span><span class="item-price">R$ 4,60</span></div>
-                    <p class="item-description">Conexão direta com o terminal BRT.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header"><span>Icoaraci - Centro (Presidente Vargas)</span><span class="item-price">R$ 4,60</span></div>
-                    <p class="item-description">Via Av. Centenário e Av. Pedro Álvares Cabral. Ótima opção para o Shopping Bosque Grão-Pará ou Doca.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-header"><span>Icoaraci - São Brás</span><span class="item-price">R$ 4,60</span></div>
-                    <p class="item-description">Atende a área do Terminal Rodoviário de Belém.</p>
-                </div>
-            </div>
+    <h2>Transportes</h2>
 
-            <div class="menu-category">
-                <h3>Balsas e Barcos (Travessia Marajó)</h3>
-                
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span>Henvil</span>
-                        <a href="https://henvil.com.br" target="_blank" class="link-site">Site Oficial</a>
-                    </div>
-                    <p class="item-description">Saída diária do Porto de Icoaraci às <strong>07:30</strong>. <br> <small style="color: #d9534f;">* O portão fecha impreterivelmente às 07:20.</small></p>
+    <div class="menu-grid">
+
+        <!-- ÔNIBUS -->
+        <div class="menu-category">
+
+            <h3>Ônibus (Principais Linhas)</h3>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span>Icoaraci - Ver-o-Peso</span>
+                    <span class="item-price">R$ 4,60</span>
                 </div>
 
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span>Banav</span>
-                        <a href="https://www.xsl.com.br/app/banav/" target="_blank" class="link-site">Site Oficial</a>
-                    </div>
-                    <p class="item-description">Saída diária às <strong>18:30</strong>.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="item-header">
-                        <span>Master</span>
-                        <a href="https://naveguemaster.com.br" target="_blank" class="link-site">Site Oficial</a>
-                    </div>
-                    <p class="item-description">Saída diária às <strong>04:00</strong> da madrugada.</p>
-                </div>
-
-                <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px; font-style: italic;">
-                    * Consulte os sites oficiais para informações sobre passagens, datas e viagens extras.
+                <p class="item-description">
+                    Linha que segue pela Rodovia Arthur Bernardes, passando pelo Tapanã e Pratinha até chegar ao centro comercial de Belém.
                 </p>
             </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span>Icoaraci - Almirante Barroso</span>
+                    <span class="item-price">R$ 4,60</span>
+                </div>
+
+                <p class="item-description">
+                    Conexão direta com o sistema BRT e fácil acesso para diversas regiões da cidade.
+                </p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span>Icoaraci - Centro (Presidente Vargas)</span>
+                    <span class="item-price">R$ 4,60</span>
+                </div>
+
+                <p class="item-description">
+                    Via Av. Centenário e Av. Pedro Álvares Cabral. Ótima opção para acessar o Shopping Bosque Grão-Pará, Doca e centro de Belém.
+                </p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span>Icoaraci - São Brás</span>
+                    <span class="item-price">R$ 4,60</span>
+                </div>
+
+                <p class="item-description">
+                    Linha com acesso à área do Terminal Rodoviário de Belém e região central.
+                </p>
+            </div>
+
+            <!-- APP VEM BUSÃO -->
+            <div class="menu-item">
+
+                <div class="item-header">
+                    <span>Tempo real dos ônibus</span>
+                </div>
+
+                <p class="item-description">
+                    Acompanhe localização, previsão de chegada e horários das linhas em tempo real através do aplicativo oficial Vem Busão.
+                </p>
+
+                <div style="margin-top:12px;">
+                    <a href="https://play.google.com/store/apps/details?id=br.com.cittabusao.belem" 
+                       target="_blank" 
+                       class="btn">
+                        Baixar Vem Busão
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-    </section>
+
+        <!-- BALSAS -->
+        <div class="menu-category">
+
+            <h3>Balsas e Barcos (Travessia Marajó)</h3>
+
+            <!-- TERMINAL HIDROVIÁRIO -->
+            <div class="menu-item">
+
+                <div class="item-header">
+                    <span>Terminal Hidroviário de Icoaraci</span>
+
+                    <a href="terminal.html" class="link-site">
+                        Ver informações
+                    </a>
+                </div>
+
+                <p class="item-description">
+                    Consulte informações sobre embarcações, destinos, horários, orientações de viagem e funcionamento do terminal hidroviário de Icoaraci.
+                </p>
+
+            </div>
+
+            <!-- HENVIL -->
+            <div class="menu-item">
+
+                <div class="item-header">
+                    <span>Henvil</span>
+
+                    <a href="https://henvil.com.br" target="_blank" class="link-site">
+                        Site Oficial
+                    </a>
+                </div>
+
+                <p class="item-description">
+                    Saída diária do Porto de Icoaraci às <strong>07:30</strong>.
+                    <br>
+                    <small style="color:#d9534f;">
+                        * O portão fecha impreterivelmente às 07:20.
+                    </small>
+                </p>
+
+            </div>
+
+            <!-- BANAV -->
+            <div class="menu-item">
+
+                <div class="item-header">
+                    <span>Banav</span>
+
+                    <a href="https://www.xsl.com.br/app/banav/" target="_blank" class="link-site">
+                        Site Oficial
+                    </a>
+                </div>
+
+                <p class="item-description">
+                    Saída diária às <strong>18:30</strong>.
+                </p>
+
+            </div>
+
+            <!-- MASTER -->
+            <div class="menu-item">
+
+                <div class="item-header">
+                    <span>Master</span>
+
+                    <a href="https://naveguemaster.com.br" target="_blank" class="link-site">
+                        Site Oficial
+                    </a>
+                </div>
+
+                <p class="item-description">
+                    Saída diária às <strong>04:00</strong> da madrugada.
+                </p>
+
+            </div>
+
+            <p style="font-size:11px; color:var(--text-muted); margin-top:10px; font-style:italic;">
+                * Consulte os sites oficiais para informações sobre passagens, datas, horários atualizados e viagens extras.
+            </p>
+
+        </div>
+
+    </div>
+</section>
 
     <section id="contato">
         <h2>Como chegar em Icoaraci?</h2>
@@ -972,6 +1161,106 @@ body {
             </iframe>
         </div>
     </section>
+
+    <section class="oportunidades" id="oportunidades">
+
+    <h2>Oportunidades em Icoaraci</h2>
+
+    <p class="sobre-texto">
+        Explore vagas de emprego, imóveis, anúncios locais e oportunidades disponíveis na plataforma Anunciei.
+    </p>
+
+    <div class="oportunidades-grid">
+
+        <!-- EMPREGOS -->
+        <div class="oportunidade-card">
+
+            <img src="empregos.jpg" alt="Empregos em Icoaraci">
+
+            <div class="oportunidade-content">
+
+                <span class="oportunidade-tag">
+                    EMPREGOS
+                </span>
+
+                <h3>Vagas de emprego em Icoaraci</h3>
+
+                <p>
+                    Descubra oportunidades de trabalho em empresas, comércios, restaurantes, academias e serviços da região.
+                </p>
+
+                <div class="preview-list">
+
+                    <div class="preview-item">
+                        <strong>Social Media • Sistema de ensino Equipe</strong>
+                        <span>
+                            Salário compatível + benefícios • Segunda a sexta
+                        </span>
+                    </div>
+
+                </div>
+
+                <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+
+                    <a href="https://gusmaolucasmateusdev.github.io/anunciei/vaga.html?id=2" target="_blank" class="btn">
+                        Ver vaga
+                    </a>
+
+                    <a href="https://gusmaolucasmateusdev.github.io/anunciei/empregos.html" target="_blank" class="btn-outline">
+                        Ver todas as vagas
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IMÓVEIS -->
+        <div class="oportunidade-card">
+
+            <img src="imoveis.jpg" alt="Imóveis em Icoaraci">
+
+            <div class="oportunidade-content">
+
+                <span class="oportunidade-tag">
+                    IMÓVEIS
+                </span>
+
+                <h3>Imóveis e oportunidades</h3>
+
+                <p>
+                    Casas, apartamentos, terrenos e imóveis disponíveis para venda ou aluguel em Icoaraci.
+                </p>
+
+                <div class="preview-list">
+
+                    <div class="preview-item">
+                        <strong>Apartamento no FIT Icoaraci</strong>
+                        <span>
+                            3 quartos • garagem • R$ 350 mil
+                        </span>
+                    </div>
+
+                </div>
+
+                <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+
+                    <a href="https://gusmaolucasmateusdev.github.io/anunciei/imovel.html?id=2" target="_blank" class="btn">
+                        Ver imóvel
+                    </a>
+
+                    <a href="https://gusmaolucasmateusdev.github.io/anunciei/imoveis.html" target="_blank" class="btn-outline">
+                        Explorar imóveis
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
 
     <section class="cta-negocios">
 
