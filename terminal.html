@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terminal Hidroviário de Icoaraci</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#f4f7fb;
+      color:#222;
+    }
+
+    /* ===== HEADER ===== */
+
+    header{
+      background:linear-gradient(135deg,#0b3c74,#0f6cbf);
+      color:white;
+      padding:120px 20px 80px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    header::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:rgba(255,255,255,0.05);
+      border-radius:50%;
+      top:-250px;
+      right:-150px;
+    }
+
+    .back-home{
+      position:absolute;
+      top:25px;
+      left:25px;
+      background:rgba(255,255,255,0.15);
+      color:white;
+      text-decoration:none;
+      padding:12px 20px;
+      border-radius:12px;
+      font-weight:600;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+      z-index:20;
+      border:1px solid rgba(255,255,255,0.15);
+    }
+
+    .back-home:hover{
+      background:white;
+      color:#0b3c74;
+      transform:translateY(-2px);
+    }
+
+    header h1{
+      font-size:3rem;
+      margin-bottom:15px;
+      position:relative;
+      z-index:2;
+    }
+
+    header p{
+      font-size:1.1rem;
+      max-width:800px;
+      margin:auto;
+      opacity:0.95;
+      position:relative;
+      z-index:2;
+      line-height:1.7;
+    }
+
+    /* ===== BOTÕES HERO ===== */
+
+    .hero-buttons{
+      margin-top:35px;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-buttons a{
+      display:inline-block;
+      background:white;
+      color:#0b3c74;
+      padding:14px 24px;
+      margin:10px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .hero-buttons a:hover{
+      transform:scale(1.05);
+    }
+
+    /* ===== NAV ===== */
+
+    nav{
+      background:#082a52;
+      padding:15px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:15px;
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#64d9ff;
+    }
+
+    /* ===== CONTAINER ===== */
+
+    .container{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+      padding:60px 0;
+    }
+
+    /* ===== TITLES ===== */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.3rem;
+      color:#0b3c74;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#555;
+      line-height:1.7;
+    }
+
+    /* ===== CARDS ===== */
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:0.4s;
+      border-top:5px solid #0f6cbf;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      color:#0b3c74;
+      margin-bottom:15px;
+      font-size:1.5rem;
+    }
+
+    .badge{
+      display:inline-block;
+      background:#0f6cbf;
+      color:white;
+      padding:6px 14px;
+      border-radius:30px;
+      font-size:0.85rem;
+      margin-bottom:15px;
+    }
+
+    /* ===== HORÁRIOS ===== */
+
+    .horarios{
+      margin-top:20px;
+    }
+
+    .horarios div{
+      background:#f2f6fc;
+      padding:12px 15px;
+      border-radius:10px;
+      margin-bottom:10px;
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      font-weight:500;
+    }
+
+    .price{
+      margin-top:20px;
+      font-size:1.2rem;
+      color:#0b3c74;
+      font-weight:700;
+    }
+
+    /* ===== INFO GRID ===== */
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .info-box{
+      background:white;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .info-box h4{
+      color:#0b3c74;
+      margin-bottom:15px;
+    }
+
+    .info-box p{
+      line-height:1.7;
+    }
+
+    /* ===== EMPRESAS ===== */
+
+    .empresa{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      margin-bottom:25px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .empresa h3{
+      color:#0b3c74;
+      margin-bottom:10px;
+    }
+
+    .empresa p{
+      margin-bottom:10px;
+      color:#444;
+      line-height:1.7;
+    }
+
+    .empresa strong{
+      color:#111;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer{
+      background:#082a52;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+      margin-top:60px;
+    }
+
+    footer p{
+      margin-top:15px;
+      line-height:1.7;
+    }
+
+    /* ===== RESPONSIVO ===== */
+
+    @media(max-width:768px){
+
+      header{
+        padding:130px 20px 70px;
+      }
+
+      .back-home{
+        top:18px;
+        left:18px;
+        padding:10px 16px;
+        font-size:0.9rem;
+      }
+
+      header h1{
+        font-size:2rem;
+      }
+
+      header p{
+        font-size:1rem;
+      }
+
+      .section-title h2{
+        font-size:1.8rem;
+      }
+
+      nav{
+        gap:10px;
+      }
+
+      .hero-buttons a{
+        display:block;
+        margin:12px auto;
+        width:100%;
+        max-width:320px;
+      }
+
+      .horarios div{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <a href="index.html" class="back-home">
+      Início
+    </a>
+
+    <h1>Terminal Hidroviário de Icoaraci</h1>
+
+    <p>
+      Informações sobre horários, embarcações, passagens e destinos
+      saindo do Terminal Hidroviário de Icoaraci, em Belém do Pará.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#cotijuba">Viagens para Cotijuba</a>
+      <a href="#marajo">Rotas Regionais</a>
+    </div>
+
+  </header>
+
+  <!-- NAV -->
+
+  <nav>
+    <a href="#cotijuba">Cotijuba</a>
+    <a href="#geladao">Lancha Geladão</a>
+    <a href="#popopo">Barco Popopô</a>
+    <a href="#marajo">Rotas Regionais</a>
+    <a href="#info">Informações</a>
+  </nav>
+
+  <!-- COTIJUBA -->
+
+  <section id="cotijuba" class="container">
+
+    <div class="section-title">
+      <h2>Travessias para Cotijuba</h2>
+
+      <p>
+        O terminal possui dois principais tipos de transporte:
+        lancha rápida (Geladão) e barcos tradicionais conhecidos como "Popopô".
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <!-- GELADÃO -->
+
+      <div class="card" id="geladao">
+
+        <span class="badge">Lancha Rápida • Geladão</span>
+
+        <h3>Icoaraci ⇄ Cotijuba</h3>
+
+        <p>
+          Embarcação mais moderna e rápida utilizada na travessia para a ilha.
+        </p>
+
+        <div class="horarios">
+
+          <div>
+            <span>Icoaraci → Cotijuba</span>
+            <strong>09h / 18h30</strong>
+          </div>
+
+          <div>
+            <span>Cotijuba → Icoaraci</span>
+            <strong>06h / 17h</strong>
+          </div>
+
+        </div>
+
+        <div class="price">
+          Segunda à sexta: R$ 4,60
+        </div>
+
+        <div class="price">
+          Sábados, domingos e feriados: R$ 9,20
+        </div>
+
+      </div>
+
+      <!-- POPOPO -->
+
+      <div class="card" id="popopo">
+
+        <span class="badge">Barco Tradicional • Popopô</span>
+
+        <h3>Icoaraci ⇄ Cotijuba</h3>
+
+        <p>
+          Barcos tradicionais muito conhecidos na região amazônica.
+          Possuem maior quantidade de horários durante o dia.
+        </p>
+
+        <div class="horarios">
+
+          <div>
+            <span>Icoaraci → Cotijuba</span>
+
+            <strong>
+              07h • 08h • 10h • 11h • 12h •
+              13h • 14h • 15h • 16h • 17h20 • 19h30
+            </strong>
+          </div>
+
+          <div>
+            <span>Cotijuba → Icoaraci</span>
+
+            <strong>
+              07h • 08h • 09h • 10h • 11h •
+              12h • 13h • 14h • 15h • 16h • 18h30
+            </strong>
+          </div>
+
+        </div>
+
+        <div class="price">
+          Valor da passagem: R$ 10,00
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ROTAS -->
+
+  <section id="marajo" class="container">
+
+    <div class="section-title">
+      <h2>Rotas Regionais</h2>
+
+      <p>
+        Empresas que realizam viagens saindo de Icoaraci
+        para comunidades e cidades da região do Marajó.
+      </p>
+    </div>
+
+    <!-- EMPRESA -->
+
+    <div class="empresa">
+
+      <h3>Expresso Cobra</h3>
+
+      <p>
+        <strong>Destinos:</strong>
+        Furu, Aranaí, Chipaia, José Joaquim e Caracará.
+      </p>
+
+      <p>
+        <strong>Horário de saída:</strong>
+        12:00h
+      </p>
+
+      <p>
+        <strong>Valor:</strong>
+        R$ 45,00
+      </p>
+
+      <p>
+        <strong>Contato:</strong>
+        (91) 98579-4349 (Toninho)
+      </p>
+
+      <p>
+        <strong>Contato:</strong>
+        (91) 99314-2028 (Bolacha)
+      </p>
+
+    </div>
+
+    <!-- EMPRESA -->
+
+    <div class="empresa">
+
+      <h3>Expresso Manú</h3>
+
+      <p>
+        <strong>Rotas:</strong>
+        Icoaraci ⇄ Bom Jesus / Anuerá
+      </p>
+
+      <p>
+        <strong>Dias:</strong>
+        Segunda, Quarta e Sexta
+      </p>
+
+      <p>
+        <strong>Saída:</strong>
+        12:00h
+      </p>
+
+      <hr style="margin:20px 0;">
+
+      <p>
+        <strong>Rotas:</strong>
+        Icoaraci ⇄ Chipaia / Aranaí / Furo
+      </p>
+
+      <p>
+        <strong>Dias:</strong>
+        Terça e Quinta
+      </p>
+
+      <p>
+        <strong>Saída:</strong>
+        12:00h
+      </p>
+
+      <p>
+        <strong>Sábado e feriado:</strong>
+        Saída às 10:00h
+      </p>
+
+      <p>
+        <strong>Valor:</strong>
+        R$ 45,00
+      </p>
+
+      <p>
+        <strong>Contato:</strong>
+        (91) 99217-7268
+      </p>
+
+      <p>
+        <strong>Outros contatos:</strong>
+        (91) 98560-6294 / 99163-5978
+      </p>
+
+    </div>
+
+    <!-- EMPRESA -->
+
+    <div class="empresa">
+
+      <h3>Expresso Mangabeira</h3>
+
+      <p>
+        <strong>Destinos:</strong>
+        Caracará, Soledade, Gurupá, Santana e Tartarugueiro.
+      </p>
+
+      <p>
+        <strong>Horários:</strong>
+        Segunda à sexta às 12:00h
+      </p>
+
+      <p>
+        <strong>Sábado e feriado:</strong>
+        10:00h
+      </p>
+
+      <p>
+        <strong>Valor:</strong>
+        Pix R$45 • Débito R$47 • Crédito R$48
+      </p>
+
+      <p>
+        <strong>Contato:</strong>
+        (91) 8509-8432
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- INFO -->
+
+  <section id="info" class="container">
+
+    <div class="section-title">
+
+      <h2>Informações Importantes</h2>
+
+      <p>
+        Algumas regras e observações presentes no terminal.
+      </p>
+
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-box">
+        <h4>Crianças</h4>
+
+        <p>
+          Crianças a partir de 6 anos pagam passagem.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>Documentação</h4>
+
+        <p>
+          Obrigatório o uso de documento com foto em algumas viagens.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>Pagamentos</h4>
+
+        <p>
+          Algumas empresas aceitam Pix, débito e crédito.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>Sobre o Popopô</h4>
+
+        <p>
+          “Popopô” é o nome popular dado aos barcos tradicionais amazônicos utilizados no transporte fluvial regional.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h3>Terminal Hidroviário de Icoaraci</h3>
+
+    <p>
+      Desenvolvido por <strong>Lucas Gusmão</strong>
+      para facilitar o acesso aos horários e rotas fluviais da região.
+    </p>
+
+  </footer>
+
+</body>
+</html>
